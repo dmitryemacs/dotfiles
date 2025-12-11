@@ -16,3 +16,11 @@ vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("i", "kj", "<Esc>", { noremap = true, silent = true })
 
 
+-- Moving in insert mode
+vim.keymap.set('i', '<C-h>', '<Left>', {noremap = true})
+vim.keymap.set('i', '<C-j>', '<Down>', {noremap = true})
+vim.keymap.set('i', '<C-k>', '<Up>', {noremap = true})
+vim.keymap.set('i', '<C-l>', '<Right>', {noremap = true})
+
+-- moving end line
+vim.keymap.set('i', '<C-e>', '<End>', {noremap = true})
