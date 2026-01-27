@@ -8,6 +8,9 @@
 ;; Set name
 (setq frame-title-format "Emacs")
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq org-directory "~/Notes")
+(setq org-agenda-files (list org-directory))
+
 
 ;; Environment settings
 (tool-bar-mode 0)
@@ -35,6 +38,9 @@
 
 ;; Font
 (set-face-attribute 'default nil :font "Hack Nerd Font-12")
+
+;; Org agenda directory
+(setq org-agenda-files '("D:/Documents/Notes"))
 
 ;; Custom cursor face
 (custom-set-faces
@@ -161,6 +167,12 @@
 ;; map
 (global-set-key (kbd "C-c c") 'compile)
 
+;; Org-agenda mapings
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c t") 'org-todo-list)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 ;; Ensure packages are installed
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -183,6 +195,7 @@
      "9c6aa7eb1bde73ba1142041e628827492bd05678df4d9097cda21b1ebcb8f8b9"
      default))
  '(package-selected-packages
-   '(ace-window company dashboard doom-themes go-mode gptel
-		gruber-darker-theme lsp-mode magit neotree projectile
-		swiper yasnippet yasnippet-snippets)))
+   '(ace-window company dashboard docker-compose-mode dockerfile-mode
+		doom-themes go-mode gptel gruber-darker-theme lsp-mode
+		magit neotree projectile swiper yasnippet
+		yasnippet-snippets)))
