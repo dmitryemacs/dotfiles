@@ -93,6 +93,14 @@
   :init
   (global-company-mode 1))
 
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
+
+(use-package yasnippet-snippets
+  :ensure t)
+
 (use-package ivy
   :ensure t
   :init
@@ -131,6 +139,14 @@
                          (interactive)
                          (c-toggle-comment-style -1)))
 
+;; Go-mode settings
+;; Основные настройки для go-mode
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode nil)
+            (setq tab-width 4)
+            (setq go-indent-offset 4)
+            (add-hook 'before-save-hook 'gofmt-before-save nil t)))
 
 ;; compilation
 (defun my/compilation-setup ()
@@ -169,4 +185,4 @@
  '(package-selected-packages
    '(ace-window company dashboard doom-themes go-mode gptel
 		gruber-darker-theme lsp-mode magit neotree projectile
-		swiper)))
+		swiper yasnippet yasnippet-snippets)))
