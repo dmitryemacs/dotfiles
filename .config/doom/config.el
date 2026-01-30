@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-ir-black)
+(setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -40,11 +40,10 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+(setq org-directory "~/org/")
 
-(setq org-directory "~/OrgRoam/")
-(setq org-roam-directory (file-truename "~/OrgRoam/"))
 
-;; whenever you reconfigure a package, make sure to wrap your config in an
+;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE
@@ -76,9 +75,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;;doom dashboard
-(setq +doom-dashboard-name "emacs")
-(setq +doom-dashboard-banner-file "emacs.png")
 ;; swiper
 (global-set-key (kbd "C-s") 'swiper)
 
@@ -107,15 +103,34 @@
 
 (add-hook 'org-mode  #'org-bullets-mode)
 
-(defun javac-current-file ()
-  "Compile the current Java file using javac."
-  (interactive)
-  (save-buffer) ; Сохраняем текущий буфер
-  (let ((file (buffer-file-name))) ; Получаем полное имя файла
-    (if (and file (string= (file-name-extension file) "java"))
-        (compile (format "java %s" file)) ; Компилируем файл с расширением .java
-      (message "Not a Java file"))))
+(setq org-directory "~/OrgRoam/")
+(setq org-roam-directory (file-truename "~/OrgRoam/"))
 
-(add-hook 'java-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c C-j") 'javac-current-file)))
+;; accept completion from copilot and fallback to company
+(use-package! copilot
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word))
+  :config
+  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
+  (add-to-list 'copilot-indentation-alist '(org-mode 2))
+  (add-to-list 'copilot-indentation-alist '(text-mode 2))
+  (add-to-list 'copilot-indentation-alist '(clojure-mode 2))
+  (add-to-list 'copilot-indentation-alist '(go-mode 4))
+  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2)))
+
+(after! (evil copilot)
+  ;; Define the custom function that either accepts the completion or does the default behavior
+  (defun my/copilot-tab-or-default ()
+    (interactive)
+    (if (and (bound-and-true-p copilot-mode)
+             ;; Add any other conditions to check for active copilot suggestions if necessary
+             )
+        (copilot-accept-completion)
+      (evil-insert 1))) ; Default action to insert a tab. Adjust as needed.
+
+  ;; Bind the custom function to <tab> in Evil's insert state
+  (evil-define-key 'insert 'global (kbd "<tab>") 'my/copilot-tab-or-default))
