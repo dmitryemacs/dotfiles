@@ -15,7 +15,6 @@ vim.opt.cursorcolumn = true
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true })
 vim.keymap.set("i", "kj", "<Esc>", { noremap = true, silent = true })
 
-
 -- Moving in insert mode
 vim.keymap.set('i', '<C-h>', '<Left>', {noremap = true})
 vim.keymap.set('i', '<C-j>', '<Down>', {noremap = true})

@@ -7,8 +7,6 @@
 ---@type LazySpec
 return {
 
-  -- == Examples of Adding Plugins ==
-
   "andweeb/presence.nvim",
   {
     "ray-x/lsp_signature.nvim",
@@ -53,27 +51,27 @@ return {
   },
 
   -- User Themes
-    -- {
-    --   "folke/tokyonight.nvim",
-    --   lazy = false,
-    --   priority = 1000,
-    --   opts = {
-    --       style = "night", -- "storm", "night", "day"
-    --       transparent = true, -- Включаем прозрачность
-    --       terminal_colors = true,
-    --       styles = {
-    --           comments = { italic = true },
-    --           keywords = { italic = true },
-    --           sidebars = "transparent", -- прозрачные sidebars
-    --           floats = "transparent",   -- прозрачные floating окна
-    --       },
-    --   },
-    --   config = function(_, opts)
-    --       require("tokyonight").setup(opts)
-    --     vim.cmd.colorscheme("tokyonight")
-    --   end,
-    -- },
-    --
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+        style = "night", -- "storm", "night", "day"
+        transparent = true, -- Включаем прозрачность
+        terminal_colors = true,
+        styles = {
+            comments = { italic = true },
+            keywords = { italic = true },
+            sidebars = "transparent", -- прозрачные sidebars
+            floats = "transparent",   -- прозрачные floating окна
+        },
+    },
+    config = function(_, opts)
+        require("tokyonight").setup(opts)
+      vim.cmd.colorscheme("tokyonight")
+    end,
+  },
+
   {
     "catppuccin/nvim",
     name = "catppuccin",
