@@ -93,6 +93,22 @@ return {
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
 
+  -- Fix illuminate on Neovim 0.12 (treesitter locals API archived)
+  {
+    "RRethy/vim-illuminate",
+    opts = {
+      providers = { "lsp", "regex" },
+    },
+  },
+
+  -- Fix aerial on Neovim 0.12 (treesitter API archived)
+  {
+    "stevearc/aerial.nvim",
+    opts = {
+      backends = { "lsp", "markdown", "man" },
+    },
+  },
+
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
