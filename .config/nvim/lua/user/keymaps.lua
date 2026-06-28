@@ -5,7 +5,7 @@ map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
-map("n", "<Leader>e", "<cmd>NERDTreeToggle<CR>", { desc = "Toggle file explorer" })
+map("n", "<Leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 map("n", "<Leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Search text" })
 map("n", "<Leader>w", "<cmd>w<CR>", { desc = "Save file" })

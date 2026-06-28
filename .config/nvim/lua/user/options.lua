@@ -15,7 +15,7 @@ vim.opt.updatetime = 300
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("config") .. "/undodir"
-vim.opt.undofile = false
+vim.opt.undofile = true
 vim.opt.clipboard = "unnamedplus"
 
 vim.g.mapleader = " "
