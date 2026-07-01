@@ -6,7 +6,7 @@ blur = true
 
 [font]
 normal = {family = "Hack Nerd Font", style = "Regular"}
-size = 14
+size = 12
 
 [cursor]
 style = {shape = "Block", blinking = "Always"}

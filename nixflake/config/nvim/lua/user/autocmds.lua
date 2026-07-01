@@ -4,6 +4,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup,
   pattern = "*",
   callback = function()
-    vim.highlight.on_yank { higroup = "IncSearch", timeout = 150 }
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
   end,
 })
