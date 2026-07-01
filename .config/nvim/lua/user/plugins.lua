@@ -131,7 +131,9 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
+        build = function()
+          vim.fn.system({ "make" })
+        end,
       },
     },
     config = function()
