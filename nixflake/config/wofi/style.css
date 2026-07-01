@@ -1,0 +1,70 @@
+* {
+  font-family: "Noto Sans", "Font Awesome 6 Free", sans-serif;
+  font-size: 14px;
+}
+
+window {
+  margin: 0px;
+  border: 2px solid #555;
+  border-radius: 12px;
+  background-color: rgba(18, 18, 18, 0.95);
+}
+
+#input {
+  margin: 8px;
+  padding: 8px 12px;
+  border: 1px solid #3f3f5c;
+  border-radius: 8px;
+  background-color: rgba(30, 30, 46, 0.9);
+  color: #cdd6f4;
+  font-size: 14px;
+}
+
+#input:focus {
+  border-color: #888;
+}
+
+#inner-box {
+  margin: 4px;
+  border: none;
+  background-color: transparent;
+}
+
+#outer-box {
+  margin: 4px;
+  border: none;
+  background-color: transparent;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+}
+
+#text {
+  margin: 4px 8px;
+  border: none;
+  color: #cdd6f4;
+}
+
+#text:selected {
+  color: #ffffff;
+}
+
+#entry {
+  margin: 2px 8px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+#entry:selected {
+  background-color: #444;
+  border-radius: 8px;
+}
+
+#img {
+  margin: 4px 8px;
+}
