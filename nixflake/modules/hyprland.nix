@@ -15,11 +15,6 @@
     slurp
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    systemd.enable = true;
-  };
-
   home.file = {
     ".config/hypr/hyprland.conf".source  = ../../.config/hypr/hyprland.conf;
     ".config/hypr/hyprpaper.conf".source = ../../.config/hypr/hyprpaper.conf;
