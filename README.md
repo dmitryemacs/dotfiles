@@ -45,7 +45,18 @@ Personal configuration files and scripts for a dual-environment Linux/FreeBSD se
 
 ## Nix Flake
 
-`nixflake/` — Home Manager flake managing CLI tools, Git, tmux, Neovim, Alacritty, and wofi via Nix on NixOS.
+`nixflake/` — Home Manager flake managing the entire desktop environment on NixOS.
+
+| Module | Purpose |
+|--------|---------|
+| `cli.nix` | CLI tools (bat, ripgrep, fd, fzf, btop, eza, nautilus, chromium, emacs …) |
+| `git.nix` | Git config |
+| `tmux.nix` | Tmux config |
+| `neovim.nix` | Neovim with Lua config, lazy.nvim, LSP, Telescope |
+| `alacritty.nix` | Alacritty terminal |
+| `wofi.nix` | Wofi launcher |
+| `hyprland.nix` | Hyprland WM, hyprpaper, hyprlock, waybar, screenshot tools, audio/brightness |
+| `waybar.nix` | Waybar status bar config |
 
 Platform: `x86_64-linux` · Channel: `nixos-unstable`
 
