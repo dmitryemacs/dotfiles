@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, lib, ... }: {
   nix = {
     enable = false; # Determinate Systems manages Nix
   };
@@ -31,6 +31,9 @@
     keyboard.enableKeyMapping = true;
     stateVersion = 5;
   };
+
+  system.activationScripts.applications.text = lib.mkForce "";
+  system.checks.text = lib.mkForce "";
 
   system.activationScripts.postActivation.text = ''
     echo "=== nix-darwin applied. User config is managed via home-manager. ==="
