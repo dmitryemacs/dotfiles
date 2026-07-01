@@ -6,7 +6,7 @@
     coreutils
     emacs
     fd
-    firefox
+    google-chrome
     ffmpeg
     git
     htop
