@@ -43,6 +43,19 @@
       HISTSIZE = "10000";
     };
 
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = ./p10k;
+        file = "p10k.zsh";
+      }
+    ];
+
     initContent = ''
       . "$HOME/.local/bin/env"
 
@@ -52,8 +65,6 @@
       setopt PUSHD_SILENT
       setopt CORRECT
       setopt NO_CASE_GLOB
-
-      PROMPT='%F{yellow}%~%f %# '
     '';
   };
 

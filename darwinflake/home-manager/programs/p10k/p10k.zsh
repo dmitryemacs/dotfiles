@@ -67,12 +67,8 @@
   typeset -g POWERLEVEL9K_VCS_LOADING_FOREGROUND=$grey
   typeset -g POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY=-1
   typeset -g POWERLEVEL9K_VCS_DISABLED_WORKDIR_PATTERN='~'
-  typeset -g POWERLEVEL9K_VCS_DISABLE_GITSTATUS_FORMATTING=true
-  typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${${${${${${P9K_CONTENT/→* →/→ }:#}:#}/%_// }// -* / }// *- / }// /*/ }'
   typeset -g POWERLEVEL9K_VCS_BACKENDS=(git)
-  typeset -g POWERLEVEL9K_VCS_GIT_HOOKS=(
-    vcs-detect-changes git-untracked git-aheadbehind git-stash git-remotebranch git-tagname
-  )
+  typeset -g POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=true
 
   # Prompt character.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$teal
