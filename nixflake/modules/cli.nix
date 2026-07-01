@@ -12,8 +12,10 @@
     pkgs.jq
     pkgs.btop
     pkgs.eza
+    pkgs.opencode
 
     pkgs.python3
+    pkgs.gnumake
     pkgs.clang
     pkgs.clang-tools
   ];
