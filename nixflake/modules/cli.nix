@@ -14,6 +14,10 @@
     pkgs.eza
     pkgs.opencode
 
+    pkgs.nautilus
+    pkgs.chromium
+    pkgs.emacs
+
     pkgs.python3
     pkgs.gnumake
     pkgs.clang

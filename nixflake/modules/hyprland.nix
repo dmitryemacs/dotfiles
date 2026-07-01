@@ -13,6 +13,12 @@
     playerctl
     grim
     slurp
+    grimblast
+    pamixer
+    brightnessctl
+    rofi
+    dunst
+    tofi
   ];
 
   home.file = {
