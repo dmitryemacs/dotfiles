@@ -5,4 +5,6 @@
   ./neovim.nix
   ./alacritty.nix
   ./wofi.nix
+  ./hyprland.nix
+  ./waybar.nix
 ]
