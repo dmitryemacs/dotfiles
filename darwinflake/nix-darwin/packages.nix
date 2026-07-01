@@ -4,8 +4,9 @@
     cabextract
     cmake
     coreutils
-    docker-compose
+    emacs
     fd
+    firefox
     ffmpeg
     git
     htop
