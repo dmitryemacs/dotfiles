@@ -1,7 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = [ pkgs.alacritty ];
+
   home.file = {
-    ".config/alacritty/alacritty.toml".source = ../config/alacritty/alacritty.toml;
+    ".config/alacritty/alacritty.toml".source = ../../.config/alacritty/alacritty.toml;
   };
 }
