@@ -20,7 +20,14 @@
 
     pkgs.python3
     pkgs.gnumake
-    pkgs.clang
-    pkgs.clang-tools
+    pkgs.gcc
+
+    pkgs.ldc
+    pkgs.dub
+    pkgs.dscanner
+
+    pkgs.php
+    pkgs.mariadb
+
   ];
 }
