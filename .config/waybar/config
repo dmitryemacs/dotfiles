@@ -142,7 +142,7 @@
     "temperature": {
         "thermal-zone": 5,
         "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-        "interval": 10,
+        "interval": 5,
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", "", "", ""],
         "tooltip": true,
