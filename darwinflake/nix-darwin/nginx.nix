@@ -4,7 +4,7 @@
     script = ''
       NGINX_DATA=/Users/dmitry/.local/var/nginx
 
-      mkdir -p "$NGINX_DATA/html"
+      mkdir -p "$NGINX_DATA/html" "$NGINX_DATA/logs"
 
       if [ ! -f "$NGINX_DATA/html/index.html" ]; then
         cat > "$NGINX_DATA/html/index.html" << 'EOF'
@@ -13,12 +13,17 @@
 EOF
       fi
 
-      if [ ! -f "$NGINX_DATA/nginx.conf" ]; then
+      if [ ! -f "$NGINX_DATA/mime.types" ]; then
         cp "${pkgs.nginx}/conf/mime.types" "$NGINX_DATA/mime.types"
+      fi
+
+      if [ ! -f "$NGINX_DATA/nginx.conf" ]; then
 
         cat > "$NGINX_DATA/nginx.conf" << CONF
 worker_processes  auto;
 daemon off;
+pid              $NGINX_DATA/logs/nginx.pid;
+error_log        $NGINX_DATA/logs/error.log;
 
 events {
     worker_connections  1024;
@@ -27,6 +32,7 @@ events {
 http {
     include       $NGINX_DATA/mime.types;
     default_type  application/octet-stream;
+    access_log    $NGINX_DATA/logs/access.log;
 
     server {
         listen       8080;

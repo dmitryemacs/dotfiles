@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: {
   services.skhd = {
     enable = true;
-    skhdConfig = ''
+    config = ''
       # Launch Alacritty
       alt - return : open -a Alacritty
 
