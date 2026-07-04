@@ -17,6 +17,7 @@
     pkgs.nautilus
     pkgs.chromium
     pkgs.emacs
+    pkgs.telegram-desktop
 
     pkgs.python3
     pkgs.gnumake

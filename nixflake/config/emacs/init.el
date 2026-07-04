@@ -82,9 +82,37 @@
   (setq aw-scale 10.0)
    :bind (("C-o" . ace-window)))
 
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1))
+
 (use-package d-mode
   :ensure t
   :mode ("\\.d\\'" . d-mode))
+
+(use-package org
+  :ensure t
+  :hook (org-mode . visual-line-mode)
+  :config
+  (setq org-adapt-indentation t)
+  (setq org-hide-leading-stars t)
+  (setq org-fold-catch-invisible-edits 'smart)
+  (setq org-special-ctrl-a/e t)
+  (setq org-use-speed-commands t))
+
+(use-package org-modern
+  :ensure t
+  :hook (org-mode . org-modern-mode))
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init '(org magit)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (custom-set-variables
@@ -97,4 +125,4 @@
    '("a7b0f6df966667c8601d252ef42b76e2a3508e7ef8ccad801c80e2a6a2537497"
      default))
  '(package-selected-packages
-   '(ace-window company d-mode gruber-darker-theme magit swiper yasnippet-snippets)))
+      '(ace-window company d-mode evil evil-collection gruber-darker-theme magit org org-modern swiper yasnippet-snippets)))
