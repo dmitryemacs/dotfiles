@@ -4,6 +4,7 @@
     ./programs/git.nix
     ./programs/zsh.nix
     ./programs/tmux.nix
+    ./programs/skhd.nix
   ];
 
   home.stateVersion = "25.05";

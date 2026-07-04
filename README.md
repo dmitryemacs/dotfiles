@@ -45,7 +45,7 @@ ln -sf ~/Source/dotfiles/.tmux.conf.local ~/.tmux.conf.local
 | `home-manager/packages.nix` | merve |
 | `home-manager/programs/git.nix` | Git user.name / user.email |
 | `home-manager/programs/zsh.nix` | Алиасы (ll, g, v, top, up/down/build/restart для docker), autosuggestions, подсветка синтаксиса, история 10k, кастомный PROMPT |
-| `home-manager/programs/tmux.nix` | Tmux vi-mode, префикс `a`, 24ч часы, история 5k |
+| `home-manager/programs/tmux.nix` | Tmux vi-mode, префикс `a`, 24ч часы, история 5k, мышь, true-color |
 
 ---
 

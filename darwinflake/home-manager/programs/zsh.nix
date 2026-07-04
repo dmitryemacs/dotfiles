@@ -5,6 +5,16 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "macos"
+        "docker"
+        "docker-compose"
+      ];
+    };
+
     history = {
       size = 10000;
       save = 10000;
@@ -35,6 +45,13 @@
       up = "docker compose up --build";
       build = "docker compose build";
       restart = "docker compose restart";
+      mysql-start = "launchctl kickstart gui/$(id -u)/mariadb";
+      mysql-stop = "launchctl kill TERM gui/$(id -u)/mariadb";
+      mysql-restart = "launchctl bootout gui/$(id -u)/mariadb 2>/dev/null; launchctl bootstrap gui/$(id -u)/mariadb";
+      nginx-start = "launchctl kickstart gui/$(id -u)/nginx";
+      nginx-stop = "launchctl kill TERM gui/$(id -u)/nginx";
+      nginx-restart = "launchctl bootout gui/$(id -u)/nginx 2>/dev/null; launchctl bootstrap gui/$(id -u)/nginx";
+      nginx-reload = "launchctl kickstart -p gui/$(id -u)/nginx";
     };
 
     localVariables = {

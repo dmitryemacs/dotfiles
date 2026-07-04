@@ -26,11 +26,15 @@
   local red=001
   local orange=208
 
+  # Defines character set used by powerlevel10k.
+  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
+
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     os_icon
     dir
     vcs
+    newline
     prompt_char
   )
 
@@ -41,12 +45,14 @@
     context
   )
 
-  # Defines character set used by powerlevel10k.
-  typeset -g POWERLEVEL9K_MODE=nerdfont-complete
+  # Multiline prompt.
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+  typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX='╰─ '
 
   # OS icon.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=$teal
   typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=
+  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   # Directory.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=$blue
@@ -104,9 +110,6 @@
 
   # Hot reload disabled.
   typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
-
-  # Enable icons.
-  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=''
 
   # If p10k is already loaded, reload configuration.
   (( ! $+functions[p10k] )) || p10k reload
