@@ -35,7 +35,7 @@ http {
     access_log    $NGINX_DATA/logs/access.log;
 
     server {
-        listen       8080;
+        listen       127.0.0.1:8080;
         server_name  localhost;
         root         $NGINX_DATA/html;
 
