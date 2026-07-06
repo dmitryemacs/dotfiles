@@ -43,10 +43,12 @@
  '(cursor ((t (:background "white")))))
 
 ;; Packages with use-package
-(use-package gruber-darker-theme
+(use-package doom-themes
   :ensure t
   :config
-  (load-theme 'gruber-darker t))
+  (load-theme 'doom-molokai t)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
 
 (use-package company
   :ensure t
@@ -120,9 +122,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(gruber-darker))
+ '(custom-enabled-themes '(doom-molokai))
  '(custom-safe-themes
    '("a7b0f6df966667c8601d252ef42b76e2a3508e7ef8ccad801c80e2a6a2537497"
      default))
  '(package-selected-packages
-      '(ace-window company d-mode evil evil-collection gruber-darker-theme magit org org-modern swiper yasnippet-snippets)))
+             '(ace-window company d-mode doom-themes evil evil-collection magit org org-modern swiper yasnippet-snippets)))
