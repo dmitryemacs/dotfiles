@@ -1,5 +1,7 @@
 ;; Load modules
-(add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
+(add-to-list 'load-path
+             (expand-file-name "modules"
+                               (file-name-directory (or load-file-name buffer-file-name))))
 
 (require 'init-packages)
 (require 'init-ui)
