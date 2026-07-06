@@ -80,6 +80,11 @@
       POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
       POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time context time)
 
+      # Editor
+      export EDITOR="emacsclient -n"
+      export VISUAL="emacsclient -n"
+      export ALTERNATE_EDITOR=""
+
       # Базовые алиасы
       alias ll='eza -la'
       alias la='eza -a'

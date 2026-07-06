@@ -6,6 +6,7 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+(server-start)
 
 ;; Environment settings
 (tool-bar-mode 0)
