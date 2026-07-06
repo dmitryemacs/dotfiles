@@ -11,6 +11,6 @@
   programs.home-manager.enable = true;
 
   home.file = {
-    ".emacs.d/init.el".source = ../../.config/emacs/init.el;
+    ".emacs.d".source = ../../.config/emacs;
   };
 }
