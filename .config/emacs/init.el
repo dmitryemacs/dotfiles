@@ -1,7 +1,8 @@
 ;; Load modules
 (add-to-list 'load-path
              (expand-file-name "modules"
-                               (file-name-directory (or load-file-name buffer-file-name))))
+                               (file-name-directory
+                                (file-truename (or load-file-name buffer-file-name)))))
 
 (require 'init-packages)
 (require 'init-ui)
