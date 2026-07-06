@@ -1,18 +1,16 @@
 ;; Load modules
-(add-to-list 'load-path
-             (expand-file-name "modules"
-                               (file-name-directory
-                                (file-truename (or load-file-name buffer-file-name)))))
-
-(require 'init-packages)
-(require 'init-ui)
-(require 'init-theme)
-(require 'init-completion)
-(require 'init-evil)
-(require 'init-projects)
-(require 'init-keybindings)
-(require 'init-org)
-(require 'init-d)
+(let* ((file (or load-file-name buffer-file-name
+                  (and (stringp (symbol-value 'user-init-file)) user-init-file)))
+       (dir (file-name-directory (file-truename file))))
+  (load (expand-file-name "modules/init-packages" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-ui" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-theme" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-completion" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-evil" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-projects" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-keybindings" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-org" dir) nil :nomessage)
+  (load (expand-file-name "modules/init-d" dir) nil :nomessage))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
