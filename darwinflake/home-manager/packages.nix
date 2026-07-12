@@ -1,7 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    bat
+    eza
     merve
-    zsh-powerlevel10k
     meslo-lgs-nf
+    wireshark
   ];
 }
