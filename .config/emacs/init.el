@@ -8,6 +8,7 @@
 (require 'init-evil)
 (require 'init-projects)
 (require 'init-keybindings)
+(require 'init-dired)
 (require 'init-org)
 (require 'init-d)
 
@@ -22,5 +23,5 @@
  '(custom-safe-themes
    '("a7b0f6df966667c8601d252ef42b76e2a3508e7ef8ccad801c80e2a6a2537497"
      default))
- '(package-selected-packages
-             '(ace-window company counsel d-mode doom-themes evil evil-collection general magit org org-modern projectile swiper which-key yasnippet-snippets)))
+'(package-selected-packages
+            '(ace-window company counsel d-mode doom-themes diredfl dired-subtree evil evil-collection general magit org org-modern projectile swiper which-key yasnippet-snippets)))

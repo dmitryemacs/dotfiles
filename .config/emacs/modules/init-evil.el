@@ -10,7 +10,7 @@
   :ensure t
   :after evil
   :config
-  (evil-collection-init '(org magit)))
+  (evil-collection-init '(org magit dired)))
 
 (use-package ace-window
   :ensure t

@@ -12,6 +12,7 @@
 (global-display-line-numbers-mode 1)
 
 (electric-pair-mode 1)
+(winner-mode 1)
 
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)

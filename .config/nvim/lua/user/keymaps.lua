@@ -19,3 +19,5 @@ map("i", "<C-k>", "<Up>", { desc = "Move up in insert mode" })
 map("i", "<C-l>", "<Right>", { desc = "Move right in insert mode" })
 map("i", "<C-a>", "<Home>", { desc = "Go to beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "Go to end of line" })
+
+map("n", "<C-s>", "/", { desc = "Search in file" })
