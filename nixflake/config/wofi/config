@@ -2,7 +2,6 @@ mode=run
 width=800
 height=400
 location=center
-prompt=
 term=foot
 allow_images=true
 hide_scroll=true

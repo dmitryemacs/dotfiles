@@ -7,13 +7,13 @@
 | Платформа | Хост | Конфиг | Подход |
 |-----------|------|--------|--------|
 | **macOS** (Apple Silicon) | `leviathan` | `darwinflake/` | nix-darwin + home-manager |
-| **Linux** (x86_64, NixOS) | — | `nixflake/` | home-manager (standalone) |
+| **Linux** (x86_64, NixOS) | `dima` | `nixflake/` | home-manager (standalone) |
 
 ---
 
 ## darwinflake — macOS
 
-`darwinflake/` управляет MacBook через [nix-darwin](https://github.com/LnL7/nix-darwin) и [home-manager](https://github.com/nix-community/home-manager).
+`darwinflake/` управляет MacBook через [nix-darwin](https://github.com/LnL7/nix-darwin) и [home-manager](https://github.com/nix-community/home-manager). Пользователь `dmitry`, stateVersion `"25.05"`.
 
 ### Быстрый старт на новом Mac
 
@@ -34,35 +34,40 @@ ln -sf ~/Source/dotfiles/.tmux.conf.local ~/.tmux.conf.local
 
 | Модуль | Что делает |
 |--------|-----------|
-| `nix-darwin/system.nix` | Dock (autohide), Finder (pathbar, расширения), Trackpad (tap, right click), скриншоты на Desktop, hostname `leviathan` |
-| `nix-darwin/packages.nix` | btop, cabextract, cmake, coreutils, emacs, fd, firefox, ffmpeg, git, htop, k6, neovim, ninja, opencode, nodejs, p7zip, pipx, python3, ripgrep, smartmontools, tmux, tree-sitter, unzip, wget, zip |
+| `nix-darwin/system.nix` | Dock (autohide, bottom, без recents), Finder (pathbar, column view, расширения), Trackpad (tap, right click), скриншоты на Desktop, hostname `leviathan`, computerName "Dmitry's MacBook Air" |
+| `nix-darwin/packages.nix` | btop, cabextract, cmake, coreutils, emacs, fd, google-chrome, ffmpeg, git, htop, k6, neovim, ninja, opencode, nodejs, p7zip, pipx, python3, ripgrep, smartmontools, tmux, tree-sitter, unzip, wget, zip |
 | `nix-darwin/programs.nix` | Zsh (системный), GPG agent с SSH-поддержкой |
 
 ### home-manager (пользовательский уровень)
 
 | Модуль | Что делает |
 |--------|-----------|
-| `home-manager/packages.nix` | merve |
+| `home-manager/packages.nix` | merve, zsh-powerlevel10k, meslo-lgs-nf |
 | `home-manager/programs/git.nix` | Git user.name / user.email |
-| `home-manager/programs/zsh.nix` | Алиасы (ll, g, v, top, up/down/build/restart для docker), autosuggestions, подсветка синтаксиса, история 10k, кастомный PROMPT |
-| `home-manager/programs/tmux.nix` | Tmux vi-mode, префикс `a`, 24ч часы, история 5k, мышь, true-color |
+| `home-manager/programs/zsh.nix` | Алиасы (ll, g, v, top, up/down/build/restart для docker, git-алиасы), autosuggestions, подсветка синтаксиса, история 10k, powerlevel10k с кастомным p10k.zsh, bash.enable |
+| `home-manager/programs/tmux.nix` | Tmux vi-mode, префикс `a`, 24ч часы, история 5k, mouse on |
 
 ---
 
 ## nixflake — Linux (NixOS)
 
-`nixflake/` использует standalone home-manager на NixOS с полноценным DE.
+`nixflake/` использует standalone home-manager на NixOS. Хост `dima`, stateVersion `"26.05"`.
 
 | Модуль | Что делает |
 |--------|-----------|
-| `modules/cli.nix` | bat, ripgrep, fd, fzf, jq, btop, eza, opencode, chromium, emacs, python3, make, clang |
+| `modules/cli.nix` | bat, ripgrep, fd, fzf, jq, btop, eza, opencode, chromium, emacs, python3, gnumake, gcc, nodejs, curl, nautilus, php, mariadb, ldc, dub, dscanner |
 | `modules/git.nix` | Git user.name / user.email |
 | `modules/tmux.nix` | Oh My Tmux! из `.tmux/` |
-| `modules/neovim.nix` | Neovim с Lua-конфигом (lazy.nvim, LSP, Telescope) |
-| `modules/alacritty.nix` | Alacritty |
+| `modules/zsh.nix` | Zsh с powerlevel10k (Catppuccin Mocha), oh-my-zsh, алиасы (ll/eza, cat/bat) |
+| `modules/neovim.nix` | Neovim с Lua-конфигом (lazy.nvim, LSP, Telescope, tokyonight) |
+| `modules/emacs.nix` | Vanilla Emacs (MELPA, gruber-darker, Ivy, Magit, company, yasnippet, d-mode) |
+| `modules/alacritty.nix` | Alacritty (maximized, без декораций, 90% opacity, blur, Hack Nerd Font 12) |
 | `modules/wofi.nix` | Wofi (лаунчер) |
-| `modules/hyprland.nix` | Hyprland WM, hyprpaper, hyprlock, waybar, cliphist, grim/slurp, аудио/яркость, dunst, rofi |
+| `modules/hyprland.nix` | Hyprland WM, hyprpaper, hyprlock, hyprpicker, waybar, cliphist, wl-clipboard, wlogout, playerctl, grim/slurp/grimblast, pamixer, brightnessctl, rofi, dunst, tofi |
 | `modules/waybar.nix` | Waybar (статус-бар) |
+| `modules/mysql.nix` | MariaDB systemd user-сервис |
+| `modules/nginx.nix` | Nginx systemd user-сервис (порт 8080, PHP, `~/public_html`) |
+| `modules/phpfpm.nix` | PHP-FPM systemd user-сервис (unix-socket) |
 
 Пересобрать:
 
@@ -82,15 +87,19 @@ home-manager switch --flake ~/Source/dotfiles/nixflake
 
 ---
 
-## Конфиги редакторов
+## Конфиги редакторов и WM
 
-`.config/` содержит конфиги, которые home-manager симлинкает:
+`nixflake/config/` содержит конфиги, которые home-manager симлинкает:
 
 | Путь | Редактор / WM |
 |------|--------------|
 | `nvim/` | Neovim Lua (lazy.nvim, LSP, Mason, Telescope, conform) |
-| `emacs/` | Vanilla Emacs (MELPA, Ivy, Magit) |
-| `doom/` | Doom Emacs (Evil, Ivy, Magit, Org-roam, Copilot) |
+| `emacs/` | Vanilla Emacs (MELPA, gruber-darker, Ivy, Magit) |
+| `doom/` | Doom Emacs |
+
+`.config/` — симлинки для live-конфигов (могут быть пустыми в репо):
+
+`alacritty/`, `hypr/`, `waybar/`, `rofi/`, `i3/`, `picom/`, `polybar/`
 
 ---
 

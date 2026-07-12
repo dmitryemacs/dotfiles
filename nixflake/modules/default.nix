@@ -7,4 +7,9 @@
   ./wofi.nix
   ./hyprland.nix
   ./waybar.nix
+  ./emacs.nix
+  ./zsh.nix
+  ./mysql.nix
+  ./nginx.nix
+  ./phpfpm.nix
 ]

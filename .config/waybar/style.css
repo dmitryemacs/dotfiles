@@ -46,6 +46,7 @@ window#waybar {
 #battery,
 #pulseaudio,
 #network,
+#temperature,
 #cpu,
 #memory,
 #workspaces,
