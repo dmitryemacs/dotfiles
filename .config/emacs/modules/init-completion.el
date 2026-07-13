@@ -1,7 +1,39 @@
-(use-package company
+(use-package vertico
   :ensure t
   :init
-  (global-company-mode 1))
+  (vertico-mode 1))
+
+(use-package orderless
+  :ensure t
+  :config
+  (setq completion-styles '(orderless basic)
+        completion-category-overrides '((file (styles partial-completion)))))
+
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode 1))
+
+(use-package embark
+  :ensure t
+  :bind (("C-." . embark-act)
+         ("C-;" . embark-dwim)))
+
+(use-package embark-consult
+  :ensure t
+  :hook (embark-collect-mode . consult-preview-at-point-mode))
+
+(use-package consult
+  :ensure t
+  :bind (("C-s" . consult-line)
+         ("C-x b" . consult-buffer)
+         ("C-x r b" . consult-bookmark)
+         ("M-s r" . consult-ripgrep)
+         ("M-s g" . consult-git-grep)
+         ("M-g g" . consult-goto-line)
+         ("M-g M-g" . consult-goto-line)
+         ("M-g i" . consult-imenu)
+         ("M-g I" . consult-imenu-multi)))
 
 (use-package yasnippet
   :ensure t
@@ -10,23 +42,5 @@
 
 (use-package yasnippet-snippets
   :ensure t)
-
-(use-package ivy
-  :ensure t
-  :init
-  (ivy-mode 1)
-  :config
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t))
-
-(use-package counsel
-  :ensure t
-  :after ivy
-  :config
-  (counsel-mode 1))
-
-(use-package swiper
-  :ensure t
-  :bind (("C-s" . swiper)))
 
 (provide 'init-completion)

@@ -13,15 +13,4 @@
   :config
   (diredfl-global-mode 1))
 
-(use-package dired-subtree
-  :ensure t
-  :after evil
-  :config
-  (evil-set-initial-state 'dired-mode 'normal)
-  (evil-collection-dired-setup)
-  (evil-define-key* 'normal dired-mode-map
-    "h" 'dired-up-directory
-    "l" 'dired-find-alternate-file
-    (kbd "DEL") 'dired-up-directory))
-
 (provide 'init-dired)

@@ -14,6 +14,46 @@
 (electric-pair-mode 1)
 (winner-mode 1)
 
+(use-package ace-window
+  :ensure t
+  :bind (("M-o" . ace-window)
+         ("C-x o" . ace-window)
+         ("C-x w" . aw-dispatch-delete))
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-background nil)
+
+  (defun aw-dispatch-delete ()
+    "Select a window with ace-window keys and delete it."
+    (interactive)
+    (let ((aw-dispatch-function
+           (lambda ()
+             (let ((w (aw--pop-window)))
+               (aw-delete-window w)))))
+      (ace-window))))
+
+(use-package avy
+  :ensure t
+  :bind (("C-:" . avy-goto-char)
+         ("C-'" . avy-goto-char-2)
+         ("M-g w" . avy-goto-word-0)))
+
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode 1))
+
+(use-package ibuffer
+  :ensure nil
+  :bind ("C-x C-b" . ibuffer)
+  :config
+  (setq ibuffer-filter-group-name-function 'ibuffer-projectile-root-filter-group-name)
+  (add-hook 'ibuffer-hook
+            (lambda ()
+              (ibuffer-projectile-set-filter-groups)
+              (unless (eq ibuffer-sorting-mode 'alphabetic)
+                (ibuffer-do-sort-by-alphabetic)))))
+
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
@@ -25,5 +65,15 @@
 
 (custom-set-faces
  '(cursor ((t (:background "white")))))
+
+(add-to-list 'display-buffer-alist
+             '("\\*compilation\\*"
+               (display-buffer-reuse-window display-buffer-in-direction)
+               (direction . bottom)
+               (window-height . 0.2)))
+
+(advice-add 'compile :after
+            (lambda (&rest _) (when (get-buffer "*compilation*")
+                                 (select-window (get-buffer-window "*compilation*")))))
 
 (provide 'init-ui)
