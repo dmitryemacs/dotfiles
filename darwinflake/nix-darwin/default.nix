@@ -5,7 +5,7 @@
     ./system.nix
     ./packages.nix
     ./programs.nix
-    ./mariadb.nix
-    ./nginx.nix
+    #./mariadb.nix
+    #./nginx.nix
   ];
 }

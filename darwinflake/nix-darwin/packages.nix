@@ -4,7 +4,6 @@
     cabextract
     cmake
     coreutils
-    emacs
     fd
     google-chrome
     ffmpeg
@@ -15,11 +14,7 @@
     ninja
     opencode
     nodejs
-    mariadb
-    nginx
     p7zip
-    php83
-    php83.packages.composer
     pipx
     python3
     ripgrep

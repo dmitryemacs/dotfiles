@@ -4,6 +4,5 @@
     eza
     merve
     meslo-lgs-nf
-    wireshark
   ];
 }
