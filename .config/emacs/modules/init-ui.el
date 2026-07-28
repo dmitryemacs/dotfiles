@@ -11,6 +11,11 @@
 (show-paren-mode 1)
 (global-display-line-numbers-mode 1)
 
+(use-package emacs
+  :init
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'none))
+
 (electric-pair-mode 1)
 (winner-mode 1)
 
