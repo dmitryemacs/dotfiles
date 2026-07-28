@@ -5,8 +5,7 @@
   (setq dired-dwim-target t)
   (setq dired-recursive-copies 'always)
   (setq dired-recursive-deletes 'top)
-  (setq dired-kill-when-opening-new-dired-buffer t)
-  (put 'dired-find-alternate-file 'disabled nil))
+  (define-key dired-mode-map (kbd "<backspace>") 'dired-up-directory))
 
 (use-package diredfl
   :ensure t
