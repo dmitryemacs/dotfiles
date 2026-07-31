@@ -14,6 +14,7 @@
     defaults = {
       dock = {
         autohide = true;
+        autohide-delay = 0.0;
         orientation = "bottom";
         show-recents = false;
       };
